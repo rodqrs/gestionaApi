@@ -30,7 +30,10 @@ if (connectionString) {
 }
 
 export const pool = new pg.Pool(config);
-export const pgpConnection = pgp(config);
+export const pgpConnection = pgp({
+  ...config,
+  ssl: isProduction ? { rejectUnauthorized: false } : false,
+});
 
 // 👉 Establecer el esquema por defecto
 pgpConnection.none('SET search_path TO gestiona')
