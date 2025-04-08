@@ -31,3 +31,9 @@ if (connectionString) {
 
 export const pool = new pg.Pool(config);
 export const pgpConnection = pgp(config);
+
+// 👉 Establecer el esquema por defecto
+pgpConnection.none('SET search_path TO gestiona')
+  .catch(error => {
+    console.error('Error setting search_path:', error);
+  });
