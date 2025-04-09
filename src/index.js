@@ -5,7 +5,7 @@ import apiV1Router from './routers/apiV1Router.js';
 const PORT = process.env.PORT || 8080;
 
 const corsOptions = {
- origin: 'http://localhost:5173',
+ origin: ['http://localhost:5173', 'https://gestionafront.onrender.com'],
  credentials: true,
  methods: ['GET', 'POST', 'PUT', 'DELETE'],
 };
